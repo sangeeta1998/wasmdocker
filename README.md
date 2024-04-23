@@ -16,6 +16,7 @@ Save  changes and run spin build to build the app as a Wasm app.
 
 ```
 spin build
+spin up
 ```
 
 # With docker
