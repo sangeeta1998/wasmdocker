@@ -28,7 +28,7 @@ COPY /target/wasm32-wasi/release/dockercon.wasm .
 COPY spin.toml .
 ```
 
-The wasm module is available in the src directory afterr wasm build.
+The wasm module is available in the src directory after wasm build.
 Therefore, edit spin.toml and replace 
 ```
 source = "dockercon.wasm"
@@ -46,7 +46,7 @@ docker buildx build \
 
 ```
 docker run -d \
-  --runtime=io.containerd.spin.v1 \
+  --runtime=io.containerd.spin.v2 \
   --platform=wasi/wasm \
   -p 3000:80 \
   wasmdocker /
