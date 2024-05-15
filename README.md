@@ -8,7 +8,7 @@ spin new
 Choose http-rust, name the app "anyname", and set the following options:
 
 HTTP base: /
-HTTP path: /
+HTTP path: /yo
 
 Can make changes to lib.rs 
 
@@ -24,21 +24,20 @@ spin up
 Dockerfile
 ```
 FROM scratch
-COPY /target/wasm32-wasi/release/dockercon.wasm .
+COPY /target/wasm32-wasi/release/wasmdocker.wasm .
 COPY spin.toml .
 ```
 
 The wasm module is available in the src directory after wasm build.
-Therefore, edit spin.toml and replace 
+Therefore, we can edit spin.toml and replace 
 ```
-source = "dockercon.wasm"
+source = "wasmdocker.wasm"
 ```
 
 # Build 
 ```
 docker buildx build \
   --platform wasi/wasm \
-  --provenance=false \
   -t wasmdocker .
 ```
 
@@ -51,6 +50,8 @@ docker run -d \
   -p 3000:80 \
   wasmdocker /
 ```
+http://localhost:3000/yo
+
 
 # wrk usage
 ```
@@ -58,7 +59,7 @@ sudo apt-get install build-essential libssl-dev git -y
 git clone https://github.com/wg/wrk.git wrk
 cd wrk
 make
-# move the executable to somewhere in your PATH, ex:
+# move the executable to somewhere in PATH, ex:
 sudo cp wrk /usr/local/bin
 ```
 
