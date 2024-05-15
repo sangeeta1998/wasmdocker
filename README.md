@@ -52,6 +52,30 @@ docker run -d \
   wasmdocker /
 ```
 
+# wrk usage
+```
+sudo apt-get install build-essential libssl-dev git -y
+git clone https://github.com/wg/wrk.git wrk
+cd wrk
+make
+# move the executable to somewhere in your PATH, ex:
+sudo cp wrk /usr/local/bin
+```
+
+# To test our server
+
+./wrk -t12 -c400 -d30s http://localhost:3000/yo
+
+-t12 specifies 12 threads.
+-c400 specifies 400 connections.
+-d30s specifies the duration of 30 seconds.
+
+# Using the pre-built WRK Docker image as an alternative:
+```
+docker run --rm -it williamyeh/wrk -t12 -c400 -d30s http://host.docker.internal:3000/yo
+```
 # For more runtimes
 
 https://docs.docker.com/desktop/wasm/
+
+
