@@ -71,6 +71,20 @@ sudo cp wrk /usr/local/bin
 -c400 specifies 400 connections.
 -d30s specifies the duration of 30 seconds.
 
+
+# Example output
+
+kakati@UNI3R9TBK3:~$ wrk -t12 -c400 -d30s  http://0.0.0.0:3001
+Running 30s test @ http://0.0.0.0:3001
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    20.58ms   13.64ms 115.20ms   69.13%
+    Req/Sec     1.68k   653.19    13.71k    80.31%
+  604611 requests in 30.06s, 67.46MB read
+Requests/sec:  20111.15
+Transfer/sec:      2.24MB
+
+
 # Using the pre-built WRK Docker image as an alternative:
 ```
 docker run --rm -it williamyeh/wrk -t12 -c400 -d30s http://host.docker.internal:3000/yo
