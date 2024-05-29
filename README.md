@@ -65,7 +65,7 @@ sudo cp wrk /usr/local/bin
 
 # To test our server
 
-./wrk -t12 -c400 -d30s http://localhost:3000/yo
+wrk -t12 -c400 -d30s http://localhost:3000/yo
 
 -t12 specifies 12 threads.
 -c400 specifies 400 connections.
