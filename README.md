@@ -46,7 +46,7 @@ or
 
 Run
 
-```sudo ctr run --rm docker.io/sangeetakakati/rust-serverless:latest rust-serverless-container
+```sudo ctr run --rm docker.io/sangeetakakati/rust-serverless:latest rust-serverless-container```
 
 
 
