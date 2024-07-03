@@ -62,6 +62,7 @@ Config file in k3s:
 ```[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.wasmtime]```
   ```runtime_type = "io.containerd.wasmtime.v1"```
 
+```sudo systemctl restart docker```
   k3s command:
 
 ```sudo systemctl restart k3s```
