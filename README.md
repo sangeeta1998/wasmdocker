@@ -40,19 +40,6 @@ check if correctly copied:
 ls -l /usr/local/bin/containerd-shim-wasmtime-v1
 
 
-Build and load the test image:
-
-make test-image
-make load
-
-Run the test container with Wasmtime:
-
-```sudo ctr run --rm --runtime=io.containerd.wasmtime.v1 ghcr.io/containerd/runwasi/wasi-demo-app:latest testwasm```
-
-To stop the process:
-```sudo ctr task kill -s SIGKILL testwasm```
-
-
 or
 
 ```sudo ctr image pull docker.io/sangeetakakati/rust_serverless:latest```
@@ -62,7 +49,23 @@ Run
 ```sudo ctr run --rm docker.io/sangeetakakati/rust-serverless:latest rust-serverless-container```
 
 
+ways to build and run:
 
+```docker buildx build --platform wasi/wasm -t username/hello-world .```
+
+
+```docker run   --runtime=io.containerd.wasmtime.v1   --platform=wasi/wasm   sangeetakakati/serwasm:latest```
+
+
+Config file in k3s:
+
+```[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.wasmtime]```
+  ```runtime_type = "io.containerd.wasmtime.v1"```
+
+  k3s command:
+
+```sudo systemctl restart k3s```
+```sudo systemctl status k3s```
 
 Server:
 Containerd is installed ctr github.com/k3s-io/containerd v1.7.15-k3s1
