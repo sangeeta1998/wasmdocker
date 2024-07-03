@@ -42,7 +42,7 @@ Run the test container with Wasmtime:
 
 or
 
-```sudo ctr image pull docker.io/sangeetakakati/rust_serverless:latest
+```sudo ctr image pull docker.io/sangeetakakati/rust_serverless:latest```
 
 Run
 
