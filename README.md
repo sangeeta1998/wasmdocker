@@ -42,7 +42,7 @@ ls -l /usr/local/bin/containerd-shim-wasmtime-v1
 
 or
 
-```sudo ctr image pull docker.io/sangeetakakati/rust_serverless:latest```
+```sudo ctr image pull github.io/sangeetakakati/serwasm:latest```
 
 Run
 
