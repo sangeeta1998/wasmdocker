@@ -57,6 +57,13 @@ ways to build and run:
 ```docker run   --runtime=io.containerd.wasmtime.v1   --platform=wasi/wasm   sangeetakakati/serwasm:latest```
 
 
+
+# Doesn't work in server, Build locally and push 
+
+```docker buildx build --platform wasm -t matsbror/serwasm:0.1 .```
+
+ the platform wasi/wasm doesn't work. 
+
 Config file in k3s:
 
 ```[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.wasmtime]```
