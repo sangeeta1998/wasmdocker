@@ -54,15 +54,19 @@ ways to build and run:
 ```docker buildx build --platform wasi/wasm -t username/hello-world .```
 
 
-```docker run   --runtime=io.containerd.wasmtime.v1   --platform=wasi/wasm   sangeetakakati/serwasm:latest```
+```docker run -rm --runtime=io.containerd.wasmtime.v1   --platform=wasi/wasm   sangeetakakati/serwasm:latest```
 
-
+```sudo ctr run --rm --runtime io.containerd.runtime.wasmtime.v1 docker.io/sangeetakakati/serwasm myapp bogus```
 
 # Doesn't work in server, Build locally and push 
 
 ```docker buildx build --platform wasm -t matsbror/serwasm:0.1 .```
 
  the platform wasi/wasm doesn't work. 
+
+
+
+ 
 
 Config file in k3s:
 
